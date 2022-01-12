@@ -1,19 +1,19 @@
-package by.academy.it.dao;
+package by.academy.it.service;
 
 import by.academy.it.entity.BaseEntity;
 
 import java.io.Serializable;
 import java.util.List;
 
-public interface Dao <E extends BaseEntity<K>, K extends Serializable>{
+public interface AppService<E extends BaseEntity<K>, K extends Serializable> {
 
-    E save(E t);
+    E save(E entity);
 
     List<E> findAll();
 
     E findById(K id);
 
-    void update(E t);
+    void update(E entity);
 
     void delete(K id);
 }
