@@ -1,19 +1,19 @@
 package by.academy.it.dao;
 
-import by.academy.it.model.Model;
+import by.academy.it.entity.BaseEntity;
 
+import java.io.Serializable;
 import java.util.List;
-import java.util.Optional;
 
-public interface Dao <T extends Model>{
+public interface Dao <E extends BaseEntity<K>, K extends Serializable>{
 
-    T save(T t);
+    E save(E t);
 
-    List<T> findAll();
+    List<E> findAll();
 
-    Optional<T> findById(Long id);
+    E findById(K id);
 
-    void update(T t);
+    void update(E t);
 
-    void delete(Long id);
+    void delete(K id);
 }

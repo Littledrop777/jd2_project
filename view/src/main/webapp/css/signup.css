@@ -1,0 +1,141 @@
+html {
+    background-image: url("../img/back-reg-img.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 70px auto;
+    width: 54vw;
+    background: #eff7fcf2;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.container h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(59, 55, 55);
+    font-size: 25px;
+}
+
+.form-wrapper {
+    margin: auto;
+}
+
+.form-item {
+    display: flex;
+    margin: auto;
+    align-items: center;
+    width: 85%;
+    height: 35px;
+}
+
+.form-item label {
+    width: 213px;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-item input {
+    margin: 5px 15px;
+    height: 25px;
+    width: 170px;
+    font-size: 14px;
+    border: 1px black solid;
+    border-radius: 5px;
+}
+
+.genders {
+    display: flex;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 16px;
+    font-size: 15px;
+}
+
+.genders input {
+    width: 18px;
+}
+
+.terms-cond h3 {
+    font-size: 25px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.check-box input {
+    margin: 16px 5px;
+}
+
+.signup {
+    margin: 25px;
+    background: #1e90ff;
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 7px 20px;
+    border-radius: 15px;
+    color: #fbfbfb;
+    border: 0;
+    cursor: pointer;
+}
+
+.signup:hover {
+    color: #3a3636;
+}
+
+.required-field::after {
+    content: "*";
+    color: red;
+}
+
+@media screen and (max-width: 640px) {
+    .container {
+
+        width: 90vw;
+        padding: 10px;
+    }
+
+    .form-item label {
+        font-size: 14px;
+        width: 100px;
+
+    }
+
+    .form-item input {
+        margin: 5px 10px;
+        height: 18px;
+        width: 100px;
+        font-size: 12px;
+    }
+
+    .genders {
+        margin-left: 10px;
+        font-size: 15px;
+
+    }
+
+    .genders input {
+        width: 15px;
+    }
+
+    .terms-cond h3 {
+        font-size: 20px;
+
+    }
+
+    .signup {
+        margin: 25px;
+        background: #1e90ff;
+        font-size: 15px;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 7px 10px;
+        border-radius: 20px;
+        color: #fbfbfb;
+        border: 0;
+        cursor: pointer;
+    }
+
+}
