@@ -1,5 +1,6 @@
 package by.academy.it.dto;
 
+<<<<<<< HEAD
 import by.academy.it.validation.FieldEquals;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -42,4 +43,21 @@ public class AddNewUserCommand {
     private LocalDate birthday;
     private String gender;
 
+=======
+import lombok.Data;
+
+import java.time.LocalDate;
+
+@Data
+public class AddNewUserCommand {
+
+    private String firstname;
+    private String lastname;
+    private String login;
+    private String email;
+    private String password;
+    private String repeatPassword;
+    private LocalDate birthday;
+    private String gender;
+>>>>>>> d371dc854108c815d3bfbd39d1ded35b5dda9614
 }

@@ -1,18 +1,18 @@
 package by.academy.it.controller;
 
 import by.academy.it.dto.AddNewUserCommand;
-import by.academy.it.entity.AppUser;
 import by.academy.it.service.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.validation.Valid;
+import javax.naming.Binding;
 import java.util.List;
 
 @Controller
@@ -30,18 +30,14 @@ public class RegistrationController {
 
 
     @PostMapping("/registration-new-user.do")
-    public ModelAndView registrationNewUser(@ModelAttribute("addNewUserCommand")
-                                            @Valid AddNewUserCommand addNewUserCommand,
+    public ModelAndView registrationNewUser(@ModelAttribute("addNewUserCommand") AddNewUserCommand addNewUserCommand,
                                             BindingResult result) {
-        if (result.hasErrors()) {
-            return new ModelAndView("registration")
-                    .addObject("error", result.getAllErrors().get(0).getDefaultMessage());
-
-        }
         List<String> errors = userService.addNewUser(addNewUserCommand);
-        if (!errors.isEmpty()) {
-            return new ModelAndView("registration").addObject("error", errors.get(0));
+        if(!errors.isEmpty()){
+            errors.forEach(error -> result.addError(new ObjectError("addNewUserCommand", error)));
+            return new ModelAndView("registration");
         }
-        return new ModelAndView("redirect:" + addNewUserCommand.getLogin() + "/profile.html");
+        return new ModelAndView("redirect:/profile.html");
+
     }
 }
