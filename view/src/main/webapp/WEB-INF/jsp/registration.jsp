@@ -17,7 +17,7 @@
     <h2>Sign Up From</h2>
     <div class="form-wrapper">
         <f:form action="${pageContext.request.contextPath}/registration-new-user.do" method="post"
-                modelAttribute="addNewUserCommand">
+                modelAttribute="addNewUserDto">
             <c:if test="${not empty error}">
                 <p class="error">
                     <c:out value="${error}"/>

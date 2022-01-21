@@ -1,5 +1,5 @@
 html {
-    background-image: url("../../img/back-reg-img.jpg");
+    background-image: url("../img/back-reg-img.jpg");
     background-attachment: fixed;
     background-size: cover;
 }
@@ -92,19 +92,19 @@ a {
 }
 
 a.account {
-    background: url("../../img/icons/account.png") no-repeat 7% 50%;
+    background: url("../img/icons/account.png") no-repeat 7% 50%;
 }
 
 a.friends {
-    background: url("../../img/icons/friends.png") no-repeat 7% 50%;
+    background: url("../img/icons/friends.png") no-repeat 7% 50%;
 }
 
 a.messenger {
-    background: url("../../img/icons/chat.png") no-repeat 7% 50%;
+    background: url("../img/icons/chat.png") no-repeat 7% 50%;
 }
 
 a.news {
-    background: url("../../img/icons/news.png") no-repeat 7% 50%;
+    background: url("../img/icons/news.png") no-repeat 7% 50%;
 }
 
 a:hover {
@@ -113,19 +113,19 @@ a:hover {
 }
 
 a.account:hover {
-    background: rgb(182 191 222 / 32%) url("../../img/icons/account.png") no-repeat 7% 50%;
+    background: rgb(182 191 222 / 32%) url("../img/icons/account.png") no-repeat 7% 50%;
 }
 
 a.friends:hover {
-    background: rgb(182 191 222 / 32%) url("../../img/icons/friends.png") no-repeat 7% 50%;
+    background: rgb(182 191 222 / 32%) url("../img/icons/friends.png") no-repeat 7% 50%;
 }
 
 a.messenger:hover {
-    background: rgb(182 191 222 / 32%) url("../../img/icons/chat.png") no-repeat 7% 50%;
+    background: rgb(182 191 222 / 32%) url("../img/icons/chat.png") no-repeat 7% 50%;
 }
 
 a.news:hover {
-    background: rgb(182 191 222 / 32%) url("../../img/icons/news.png") no-repeat 7% 50%;
+    background: rgb(182 191 222 / 32%) url("../img/icons/news.png") no-repeat 7% 50%;
 }
 
 @media screen and (max-width: 640px) {

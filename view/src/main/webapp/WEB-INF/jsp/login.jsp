@@ -8,7 +8,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- For google icons  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link href="css/login.css" rel="stylesheet">
     <link href="css/error.css" rel="stylesheet">
@@ -28,17 +27,18 @@
 <div class="container">
     <h2>Login Form</h2>
     <f:form action="${pageContext.request.contextPath}/login-user.do" method="post"
-          modelAttribute="loginUserCommand">
+            modelAttribute="loginUserDto">
         <c:if test="${not empty error}">
             <p class="error">
-                <c:out value="${error}"/>            </p>
+                <c:out value="${error}"/>
+            </p>
         </c:if>
         <div class="form-item">
                 <span class="material-icons-outlined">
                     account_circle
                     </span>
             <label for="login"></label>
-            <f:input path="login" type="text" name="login" id="login" placeholder="username or email"/>
+            <f:input path="login" type="text" name="login" id="login" placeholder="login"/>
         </div>
         <div class="form-item">
                 <span class="material-icons-outlined">

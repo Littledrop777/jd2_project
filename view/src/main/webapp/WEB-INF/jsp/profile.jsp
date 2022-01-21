@@ -5,14 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    <link href="../../css/search.css" rel="stylesheet">
-    <link href="../../css/profile.css" rel="stylesheet">
+    <link href="../css/search.css" rel="stylesheet">
+    <link href="../css/profile.css" rel="stylesheet">
     <title>Profile</title>
 </head>
 <body>
+<%--<a href="view/${login}/profile.html"></a>--%>
 <div class="search-item">
     <form method="Get" action="">     <%--method get, action--%>
-        <input type="text" placeholder="Search...">
+        <label>
+            <input type="text" placeholder="Search...">
+        </label>
         <button class="material-icons-outlined" type="submit">search</button>
     </form>
 </div>
@@ -30,33 +33,19 @@
     <div class="container-prof">
         <div class="container-photo">
             Photo
-
         </div>
         <div class="container-info">
-            <H2>User Name</H2>
-            <H4>User Login</H4>
+            <H2>${userInfoDto.firstname} ${userInfoDto.lastname}</H2>
+            <H4>${userInfoDto.login}</H4>
             <hr>
-            <p>Birthday info</p>
+            <p>Birthday: ${userInfoDto.birthday}</p>
             <hr>
-            <p>text text text text</p>
+            <p>Email: ${userInfoDto.email}</p>
             <hr>
-            <p>text text text text</p>
+            <p>Gender: ${userInfoDto.gender}</p>
             <hr>
-            <p>text text text text</p>
-            <hr>
-            <p>text text text text</p>
-            <hr>
-            <p>text text text text</p>
-            <hr>
-            <p>text text text text</p>
-            <hr>
-            <p>text text text text</p>
-            <hr>
-            <p>text text text text</p>
         </div>
-
     </div>
-
 </div>
 </body>
 </html>
