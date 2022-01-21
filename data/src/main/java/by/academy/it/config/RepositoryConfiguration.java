@@ -1,12 +1,7 @@
 package by.academy.it.config;
 
 import by.academy.it.entity.AppUser;
-<<<<<<< HEAD
 import by.academy.it.entity.UserInfo;
-=======
-import by.academy.it.entity.AppUserInfo;
-import by.academy.it.entity.Info;
->>>>>>> d371dc854108c815d3bfbd39d1ded35b5dda9614
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.hibernate.SessionFactory;
@@ -51,13 +46,6 @@ public class RepositoryConfiguration {
         properties.setProperty("show_sql", "true");
         properties.setProperty("format_sql", "true");
         properties.setProperty("hibernate.hbm2ddl.auto", "update");
-<<<<<<< HEAD
-      /*  properties.setProperty("hibernate.connection.CharSet", "utf8");
-        properties.setProperty("hibernate.connection.characterEncoding", "utf8");
-        properties.setProperty("hibernate.connection.useUnicode", "true");*/
-
-=======
->>>>>>> d371dc854108c815d3bfbd39d1ded35b5dda9614
         return properties;
     }
 
@@ -84,11 +72,7 @@ public class RepositoryConfiguration {
         sessionFactory.setHibernateProperties(properties);
 
         sessionFactory.setAnnotatedPackages("by.academy.it.entity");
-<<<<<<< HEAD
         sessionFactory.setAnnotatedClasses(AppUser.class, UserInfo.class);
-=======
-        sessionFactory.setAnnotatedClasses(AppUser.class, Info.class, AppUserInfo.class);
->>>>>>> d371dc854108c815d3bfbd39d1ded35b5dda9614
 
         return sessionFactory;
     }

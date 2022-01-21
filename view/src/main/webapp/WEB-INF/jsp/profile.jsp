@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%--<jsp:include page="_header.jsp">--%>
 <html>
 <head>
     <meta charset="UTF-8">

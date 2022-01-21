@@ -18,9 +18,9 @@ public class UserProfileController {
     @Autowired
     private UserInfoService userInfoService;
 
-    @GetMapping("/{id}/profile.html")
-    public ModelAndView showUserProfile(@PathVariable String id){
-        AppUser user = appUserService.findById(id);
+    @GetMapping("/{login}/profile.html")
+    public ModelAndView showUserProfile(@PathVariable String login){
+        AppUser user = appUserService.findByLogin(login);
         return new ModelAndView("profile")
                 .addObject("addNewUserCommand", new AddNewUserCommand());
     }

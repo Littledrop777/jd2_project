@@ -27,17 +27,12 @@
 </div>
 <div class="container">
     <h2>Login Form</h2>
-<<<<<<< HEAD:view/src/main/webapp/WEB-INF/jsp/login.jsp
     <f:form action="${pageContext.request.contextPath}/login-user.do" method="post"
           modelAttribute="loginUserCommand">
         <c:if test="${not empty error}">
             <p class="error">
-                <c:out value="${error}"/>
-            </p>
+                <c:out value="${error}"/>            </p>
         </c:if>
-=======
-    <form action="${pageContext.request.contextPath}ui/login.do" method="post">
->>>>>>> d371dc854108c815d3bfbd39d1ded35b5dda9614:view/src/main/webapp/WEB-INF/jsp/WEB-INF/jsp/login.jsp
         <div class="form-item">
                 <span class="material-icons-outlined">
                     account_circle
@@ -53,13 +48,8 @@
             <f:input path="password" type="password" name="pass" id="pass" placeholder="password"/>
         </div>
         <button type="submit"> LOGIN</button>
-<<<<<<< HEAD:view/src/main/webapp/WEB-INF/jsp/login.jsp
         <p>New User? <a href="${pageContext.request.contextPath}/registration.html">Create an account</a></p>
     </f:form>
-=======
-        <p>New User? <a href="${pageContext.request.contextPath}ui/registration.html">Create an account</a></p>
-    </form>
->>>>>>> d371dc854108c815d3bfbd39d1ded35b5dda9614:view/src/main/webapp/WEB-INF/jsp/WEB-INF/jsp/login.jsp
 </div>
 </body>
 </html>

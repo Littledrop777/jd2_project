@@ -32,34 +32,28 @@
                 <label for="lastname">Last Name:</label>
                 <f:input type="text" path="lastname" name="lastname" id="lastname" placeholder="Last Name"
                          maxlength="20"/>
-                <br>
             </div>
             <div class="form-item">
                 <label for="username" class="required-field">Username:</label>
                 <f:input type="text" path="login" name="username" id="username" placeholder="User Name"/>
-                <br>
             </div>
             <div class="form-item">
                 <label for="email" class="required-field">E-mail:</label>
                 <f:input type="email" path="email" name="email" id="email" placeholder="email@xyz.com"/>
-                <br>
             </div>
             <div class="form-item">
                 <label for="pass" class="required-field">Password:</label>
                 <f:input type="password" path="password" name="password" id="pass" placeholder="password"
                          autocomplete="off"/>
-                <br>
             </div>
             <div class="form-item">
                 <label for="repeat-pass" class="required-field">Repeat password:</label>
                 <f:input type="password" path="repeatPassword" name="repassword" id="repeat-pass"
                          placeholder="repassword" autocomplete="off"/>
-
             </div>
             <div class="form-item">
                 <label style="width: 151px" for="birthday" class="required-field">Birthday:</label>
-                <f:input type="date" path="birthday" id="birthday" name="birthday" min="01-01-1920"/>
-                <br>
+                <f:input type="date" path="birthday" id="birthday" name="birthday" min="01.01.1920"/>
             </div>
             <div class="form-item">
                 <label for="gender">Gender:</label>
@@ -71,9 +65,6 @@
             <button class="signup" type="submit">Sign Up</button>
         </f:form>
     </div>
-
 </div>
-
 </body>
-
 </html>

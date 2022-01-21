@@ -1,7 +1,8 @@
-package by.academy.it.service;
+package by.academy.it.service.impl;
 
 import by.academy.it.dao.UserInfoDao;
 import by.academy.it.entity.UserInfo;
+import by.academy.it.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +11,7 @@ import java.util.List;
 @Service
 public class UserInfoServiceImpl implements UserInfoService {
 
-    private UserInfoDao userInfoDao;
+    private final UserInfoDao userInfoDao;
 
     @Autowired
     public UserInfoServiceImpl(UserInfoDao userInfoDao) {
