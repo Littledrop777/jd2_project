@@ -62,11 +62,6 @@ public class AppUserServiceImpl implements AppUserService {
     }
 
     @Override
-    public AppUserInfoDto findUserWIthInfoByLogin(String login) {
-        return appUserDao.findUserWIthInfoByLogin(login);
-    }
-
-    @Override
     @Transactional
     public List<String> addNewUser(AddNewUserDto command) {
         UserInfo info = UserInfo.builder()
@@ -93,11 +88,17 @@ public class AppUserServiceImpl implements AppUserService {
     }
 
     @Override
+    @Transactional
     public AppUser save(AppUser user) {
         char[] charsOfPassword = user.getPassword().toCharArray();
         String encryptedPassword = hasher.hashToString(MIN_COST, charsOfPassword);
         user.setPassword(encryptedPassword);
         return appUserDao.save(user);
+    }
+
+    @Override
+    public AppUserInfoDto findUserWIthInfoByLogin(String login) {
+        return appUserDao.findUserWIthInfoByLogin(login);
     }
 
     @Override
@@ -116,11 +117,13 @@ public class AppUserServiceImpl implements AppUserService {
     }
 
     @Override
+    @Transactional
     public void update(AppUser user) {
         appUserDao.update(user);
     }
 
     @Override
+    @Transactional
     public void delete(String id) {
         appUserDao.delete(id);
     }

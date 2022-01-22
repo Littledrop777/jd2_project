@@ -41,5 +41,4 @@ public class AddNewUserDto {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate birthday;
     private String gender;
-
 }

@@ -1,6 +1,5 @@
 package com.academy.it.config;
 
-import com.academy.it.dto.AppUserInfoDto;
 import com.academy.it.entity.AppUser;
 import com.academy.it.entity.UserInfo;
 import com.zaxxer.hikari.HikariConfig;

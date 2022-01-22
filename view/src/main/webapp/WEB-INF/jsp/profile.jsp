@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
     <meta charset="UTF-8">
@@ -10,7 +12,6 @@
     <title>Profile</title>
 </head>
 <body>
-<%--<a href="view/${login}/profile.html"></a>--%>
 <div class="search-item">
     <form method="Get" action="">     <%--method get, action--%>
         <label>
@@ -23,10 +24,16 @@
     <div class="container-nav">
         <nav class="navigation">
             <ul>
-                <li><a class="account" href="#">My Profile</a></li>
+                <li>
+                    <a class="account" href="${pageContext.request.contextPath}/${sessionScope.currentUser.login}/profile.html">
+                        My Profile
+                    </a>
+                </li>
                 <li><a class="friends" href="#">Friends</a></li>
                 <li><a class="messenger" href="#">Messenger</a></li>
                 <li><a class="news" href="#">News</a></li>
+                <li><a class="settings" href="#">Settings</a></li>
+                <li><a class="logout" href="${pageContext.request.contextPath}/logout-user.html">Logout</a></li>
             </ul>
         </nav>
     </div>
@@ -39,6 +46,7 @@
             <H4>${userInfoDto.login}</H4>
             <hr>
             <p>Birthday: ${userInfoDto.birthday}</p>
+            <c:out value="${sessionScope.currentUser.login}"/>
             <hr>
             <p>Email: ${userInfoDto.email}</p>
             <hr>

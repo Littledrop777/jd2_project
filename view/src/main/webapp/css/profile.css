@@ -22,7 +22,7 @@ html {
 .navigation {
     display: block;
     width: 160px;
-    height: 175px;
+    height: 222px;
 }
 
 .container-prof {
@@ -107,6 +107,14 @@ a.news {
     background: url("../img/icons/news.png") no-repeat 7% 50%;
 }
 
+a.settings {
+    background: url("../img/icons/settings.png") no-repeat 7% 50%;
+}
+
+a.logout {
+    background: url("../img/icons/logout.png") no-repeat 7% 50%;
+}
+
 a:hover {
     border-bottom: 2px solid rgb(52 39 106 / 32%);
     border-radius: 15px;
@@ -128,8 +136,15 @@ a.news:hover {
     background: rgb(182 191 222 / 32%) url("../img/icons/news.png") no-repeat 7% 50%;
 }
 
-@media screen and (max-width: 640px) {
+a.settings:hover {
+    background: rgb(182 191 222 / 32%) url("../img/icons/settings.png") no-repeat 7% 50%;
+}
 
+a.logout:hover {
+    background: rgb(182 191 222 / 32%) url("../img/icons/logout.png") no-repeat 7% 50%;
+}
+
+@media screen and (max-width: 640px) {
 
     .form-item label {
         font-size: 14px;
