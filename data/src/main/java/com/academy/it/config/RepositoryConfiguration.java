@@ -35,7 +35,6 @@ public class RepositoryConfiguration {
         Properties properties = new Properties();
         properties.setProperty("useSSL", env.getProperty("useSSL"));
         properties.setProperty("serverTimezone", env.getProperty("serverTimezone"));
-        properties.setProperty("createDatabaseIfNotExist", env.getProperty("createDatabaseIfNotExist"));
         return properties;
     }
 

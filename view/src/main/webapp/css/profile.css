@@ -22,7 +22,6 @@ html {
 .navigation {
     display: block;
     width: 160px;
-    height: 222px;
 }
 
 .container-prof {
@@ -81,7 +80,7 @@ li {
     padding-bottom: 7px;
 }
 
-a {
+nav a {
     padding-left: 43px;
     text-decoration: none;
     line-height: 26px;
@@ -115,7 +114,11 @@ a.logout {
     background: url("../img/icons/logout.png") no-repeat 7% 50%;
 }
 
-a:hover {
+a.login {
+    background: url("../img/icons/login.png") no-repeat 7% 50%;
+}
+
+nav a:hover {
     border-bottom: 2px solid rgb(52 39 106 / 32%);
     border-radius: 15px;
 }
@@ -138,6 +141,10 @@ a.news:hover {
 
 a.settings:hover {
     background: rgb(182 191 222 / 32%) url("../img/icons/settings.png") no-repeat 7% 50%;
+}
+
+a.login:hover {
+    background: rgb(182 191 222 / 32%) url("../img/icons/login.png") no-repeat 7% 50%;
 }
 
 a.logout:hover {

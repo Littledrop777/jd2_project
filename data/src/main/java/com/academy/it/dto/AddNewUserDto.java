@@ -5,6 +5,7 @@ import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -25,6 +26,7 @@ public class AddNewUserDto {
     @Pattern(regexp = "([A-Za-z]|[А-Яа-яЁё])*", message = "Surname should contains only letters")
     private String lastname;
     @NotBlank(message = "Username should not be empty")
+    @Size(min = 2, max = 20, message = "Login should be from 2 to 20 characters ")
     private String login;
     @NotEmpty(message = "Email should not be empty")
     @Email(message = "Email should be valid")
@@ -32,7 +34,7 @@ public class AddNewUserDto {
     @NotEmpty(message = "Password should not be empty")
     @Pattern(regexp = "(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$",
             message = "Password should contains at least one letter and digits")
-    @Size(min = 8, message = "Password size should be at least 8 characters")
+    @Size(min = 8, max = 20, message = "Password size should be from 8 to 20 characters")
     private String password;
     @NotEmpty(message = "Repeat password should not be empty")
     private String repeatPassword;

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <changeSet id="1" author="aplehanova">
+        <sql>
+            CREATE TABLE IF NOT EXISTS app_user
+            (
+                user_id     varchar(200),
+                u_login     varchar(50)  NOT NULL UNIQUE,
+                u_pass      varchar(100) NOT NULL,
+                u_role      varchar(50)  NOT NULL,
+                create_date timestamp NOT NULL,
+                update_date timestamp NULL DEFAULT NULL,
+                PRIMARY KEY (user_id)
+                )
+                CHARACTER SET utf8
+                COLLATE utf8_general_ci;
+
+            CREATE TABLE IF NOT EXISTS user_info
+            (
+                info_id     varchar(200),
+                app_user_id     varchar(200) NOT NULL,
+                firstname   varchar(50)  NOT NULL,
+                lastname    varchar(100) DEFAULT NULL,
+                email       varchar(50)  NOT NULL UNIQUE,
+                birthday    timestamp NULL DEFAULT NULL,
+                gender      varchar(50),
+                update_date timestamp NULL DEFAULT NULL,
+                PRIMARY KEY (info_id),
+                FOREIGN KEY (app_user_id) REFERENCES app_user (user_id)
+                )
+                CHARACTER SET utf8
+                COLLATE utf8_general_ci;
+        </sql>
+    </changeSet>
+</databaseChangeLog>

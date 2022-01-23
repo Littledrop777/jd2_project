@@ -18,9 +18,9 @@ public class UserProfileController {
 
     @GetMapping("/{login}/profile.html")
     public ModelAndView showUserProfile(@PathVariable String login, HttpServletRequest request) {
-        if (request.getSession().getAttribute("currentUser") == null) {
+       /* if (request.getSession().getAttribute("currentUser") == null) {
             return new ModelAndView("redirect:/login.html");
-        }
+        }*/
         AppUserInfoDto userInfoDto = appUserService.findUserWIthInfoByLogin(login);
         return new ModelAndView("profile")
                 .addObject("userInfoDto", userInfoDto);

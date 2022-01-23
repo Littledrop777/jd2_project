@@ -1,6 +1,8 @@
 package com.academy.it.dao;
 
 import com.academy.it.config.TestConfiguration;
+import com.academy.it.dto.AppUserInfoDto;
+import com.academy.it.dto.SearchUserResultDto;
 import com.academy.it.entity.AppUser;
 import com.academy.it.entity.Role;
 import com.academy.it.entity.UserInfo;
@@ -30,7 +32,7 @@ import static org.junit.Assert.assertNotNull;
         {DependencyInjectionTestExecutionListener.class,
                 DbUnitTestExecutionListener.class})
 @DatabaseSetup(value = "dataForTest.xml")
-@DatabaseTearDown( value = "dataForTest.xml", type = DatabaseOperation.DELETE_ALL)
+//@DatabaseTearDown(value = "dataForTest.xml", type = DatabaseOperation.DELETE_ALL)
 public class AppUserInfoDaoTest {
 
     @Autowired
@@ -42,12 +44,12 @@ public class AppUserInfoDaoTest {
         user.setLogin("test");
         user.setPassword("test");
         user.setRole(Role.USER);
+        user.setCreateDate(Instant.now());
 
         UserInfo info = UserInfo.builder()
-                .firstname("Alica")
-                .lastname("Jonson")
+                .firstname("Катя")
+                .lastname("Петрова")
                 .email("test@mail.com")
-                .createDate(Instant.now())
                 .birthday(LocalDate.of(1989, 12, 12))
                 .build();
 
@@ -81,5 +83,18 @@ public class AppUserInfoDaoTest {
         userFromDB.setUpdateDate(updateTime);
         userDao.update(userFromDB);
         assertEquals(updateTime, userFromDB.getUpdateDate());
+    }
+
+    @Test
+    public void findUserWIthInfoByLoginTest() {
+        AppUserInfoDto userFromDB = userDao
+                .findUserWIthInfoByLogin("login2");
+        assertEquals("login2", userFromDB.getLogin());
+    }
+
+    @Test
+    public void findAllByCriteriaTest() {
+        List<SearchUserResultDto> result = userDao.findAllByCriteria("L");
+        assertNotNull(result);
     }
 }

@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Column;
@@ -21,6 +22,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Data
 @EqualsAndHashCode(of = "email")
+@ToString(exclude = "appUser")
 @Builder
 @Entity
 @Table(name = "user_info")
@@ -31,19 +33,14 @@ public class UserInfo implements BaseEntity<String> {
     @GeneratedValue(generator = "uuid-generator")
     @GenericGenerator(name = "uuid-generator", strategy = "uuid")
     private String id;
-    @Column(nullable = false)
     private String firstname;
     private String lastname;
-    @Column(nullable = false, unique = true)
     private String email;
-    @Column(nullable = false)
     private LocalDate birthday;
     private String gender;
-    @Column(name = "create_date", nullable = false)
-    private Instant createDate;
     @Column(name = "update_date")
     private Instant updateDate;
     @OneToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "app_user_id")
     private AppUser appUser;
 }

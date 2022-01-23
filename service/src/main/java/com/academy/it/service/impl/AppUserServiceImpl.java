@@ -70,7 +70,6 @@ public class AppUserServiceImpl implements AppUserService {
                 .email(command.getEmail())
                 .birthday(command.getBirthday())
                 .gender(command.getGender())
-                .createDate(Instant.now())
                 .build();
 
         AppUser user = new AppUser();
@@ -93,6 +92,7 @@ public class AppUserServiceImpl implements AppUserService {
         char[] charsOfPassword = user.getPassword().toCharArray();
         String encryptedPassword = hasher.hashToString(MIN_COST, charsOfPassword);
         user.setPassword(encryptedPassword);
+        user.setCreateDate(Instant.now());
         return appUserDao.save(user);
     }
 

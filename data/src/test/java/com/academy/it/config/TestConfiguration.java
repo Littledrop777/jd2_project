@@ -38,7 +38,6 @@ public class TestConfiguration {
         Properties properties = new Properties();
         properties.setProperty("useSSL", environment.getProperty("useSSL"));
         properties.setProperty("serverTimezone", environment.getProperty("serverTimezone"));
-        properties.setProperty("createDatabaseIfNotExist", environment.getProperty("createDatabaseIfNotExist"));
         return properties;
     }
 

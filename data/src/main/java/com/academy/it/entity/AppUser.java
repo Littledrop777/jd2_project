@@ -22,7 +22,7 @@ import java.time.Instant;
 @Data
 @EqualsAndHashCode(of = "login")
 @Entity
-@Table(name = "user")
+@Table(name = "app_user")
 public class AppUser implements BaseEntity<String> {
 
     @Id
@@ -30,12 +30,15 @@ public class AppUser implements BaseEntity<String> {
     @GeneratedValue(generator = "uuid-generator")
     @GenericGenerator(name = "uuid-generator", strategy = "uuid")
     private String id;
-    @Column(name = "u_login", nullable = false, unique = true)
+    @Column(name = "u_login")
     private String login;
-    @Column(name = "u_pass", nullable = false)
+    @Column(name = "u_pass")
     private String password;
     @Enumerated(EnumType.STRING)
+    @Column(name = "u_role")
     private Role role;
+    @Column(name = "create_date")
+    private Instant createDate;
     @Column(name = "update_date")
     private Instant updateDate;
     @OneToOne(mappedBy = "appUser", cascade = CascadeType.ALL)

@@ -9,17 +9,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    <link href="css/login.css" rel="stylesheet">
-    <link href="css/error.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/login.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/error.css" rel="stylesheet">
     <title>Login form</title>
 
 </head>
 <body>
 <div class="background"></div>
 <div class="search-item">
-    <form method="get" action="">     <%--method get, action--%>
+    <form method="get" action="${pageContext.request.contextPath}/search.html">
         <label>
-            <input type="text" placeholder="Search...">
+            <input name="pattern" type="text" placeholder="Search...">
         </label>
         <button class="material-icons-outlined" type="submit">search</button>
     </form>
