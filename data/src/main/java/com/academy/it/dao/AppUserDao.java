@@ -12,5 +12,5 @@ public interface AppUserDao extends Dao<AppUser, String> {
 
     AppUserInfoDto findUserWIthInfoByLogin(String login);
 
-    List<SearchUserResultDto> findAllByCriteria(String criteria);
+    List<SearchUserResultDto> findAllByCriteria(String criteria, int first, int max);
 }

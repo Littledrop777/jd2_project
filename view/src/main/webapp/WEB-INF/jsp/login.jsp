@@ -17,7 +17,7 @@
 <body>
 <div class="background"></div>
 <div class="search-item">
-    <form method="get" action="${pageContext.request.contextPath}/search.html">
+    <form method="get" action="${pageContext.request.contextPath}/${1}/search.html">
         <label>
             <input name="pattern" type="text" placeholder="Search...">
         </label>

@@ -94,7 +94,7 @@ public class AppUserInfoDaoTest {
 
     @Test
     public void findAllByCriteriaTest() {
-        List<SearchUserResultDto> result = userDao.findAllByCriteria("L");
+        List<SearchUserResultDto> result = userDao.findAllByCriteria("L", 0, 3);
         assertNotNull(result);
     }
 }

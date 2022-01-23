@@ -19,11 +19,11 @@ public class SearchServiceImpl implements SearchService {
     }
 
     @Override
-    public List<SearchUserResultDto> search(String criteria) {
+    public List<SearchUserResultDto> search(String criteria, int first, int max) {
         String[] names = criteria.trim().split(" ");
         List<SearchUserResultDto> results = new ArrayList<>();
         for (String name : names) {
-            results.addAll(appUserDao.findAllByCriteria(name));
+            results.addAll(appUserDao.findAllByCriteria(name, first, max));
         }
         return results;
     }

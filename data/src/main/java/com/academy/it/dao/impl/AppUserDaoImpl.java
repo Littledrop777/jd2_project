@@ -50,10 +50,13 @@ public class AppUserDaoImpl extends BaseDao<AppUser, String> implements AppUserD
     }
 
     @Override
-    public List<SearchUserResultDto> findAllByCriteria(String criteria) {
+    public List<SearchUserResultDto> findAllByCriteria(String criteria, int first, int max) {
         Session session = getSession();
         String query = String.format(FIND_BY_CRITERIA_QUERY, criteria, criteria, criteria);
-        return session.createQuery(query, SearchUserResultDto.class).list();
+        Query<SearchUserResultDto> result = session.createQuery(query, SearchUserResultDto.class);
+        result.setFirstResult(first);
+        result.setMaxResults(max);
+        return result.list();
     }
 }
 
