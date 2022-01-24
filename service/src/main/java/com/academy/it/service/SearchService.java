@@ -1,4 +1,4 @@
-package com.academy.it.service.impl;
+package com.academy.it.service;
 
 import com.academy.it.dto.SearchUserResultDto;
 

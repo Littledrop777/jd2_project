@@ -46,7 +46,7 @@ public class LoginController {
                     .addObject("error", errors.get(0));
         }
         AppUser currentUser = userService.findByLogin(loginUserDto.getLogin());
-        return new ModelAndView("redirect:" + loginUserDto.getLogin() + "/profile.html")
+        return new ModelAndView("redirect:" + currentUser.getId() + "/profile.html")
                 .addObject("currentUser", currentUser);
 
     }

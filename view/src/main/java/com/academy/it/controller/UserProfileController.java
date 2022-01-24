@@ -16,12 +16,9 @@ public class UserProfileController {
     @Autowired
     private AppUserService appUserService;
 
-    @GetMapping("/{login}/profile.html")
-    public ModelAndView showUserProfile(@PathVariable String login, HttpServletRequest request) {
-       /* if (request.getSession().getAttribute("currentUser") == null) {
-            return new ModelAndView("redirect:/login.html");
-        }*/
-        AppUserInfoDto userInfoDto = appUserService.findUserWIthInfoByLogin(login);
+    @GetMapping("/{id}/profile.html")
+    public ModelAndView showUserProfile(@PathVariable String id, HttpServletRequest request) {
+        AppUserInfoDto userInfoDto = appUserService.findUserWIthInfoById(id);
         return new ModelAndView("profile")
                 .addObject("userInfoDto", userInfoDto);
     }

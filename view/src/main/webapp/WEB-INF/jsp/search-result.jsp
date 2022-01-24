@@ -8,10 +8,10 @@
         <table>
             <tbody>
             <c:forEach items="${results}" var="result">
-                <c:if test="${result.login ne sessionScope.currentUser.login}">
+                <c:if test="${result.uuid ne sessionScope.currentUser.id}">
                     <tr>
                         <td>
-                            <a href="${pageContext.request.contextPath}/${result.login}/profile.html">
+                            <a href="${pageContext.request.contextPath}/${result.uuid}/profile.html">
                                     ${result.login}
                                     ${result.firstname}
                                     ${result.lastname}

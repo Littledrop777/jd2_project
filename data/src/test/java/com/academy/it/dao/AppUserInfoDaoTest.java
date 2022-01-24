@@ -7,9 +7,7 @@ import com.academy.it.entity.AppUser;
 import com.academy.it.entity.Role;
 import com.academy.it.entity.UserInfo;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
-import com.github.springtestdbunit.annotation.DatabaseOperation;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
-import com.github.springtestdbunit.annotation.DatabaseTearDown;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,7 +77,9 @@ public class AppUserInfoDaoTest {
     public void updateTest() {
         AppUser userFromDB = userDao
                 .findById("2c93a0817dec3a6a017dec3a71200002");
+        userFromDB.getUserInfo().setFirstname("newName");
         Instant updateTime = Instant.now();
+        userFromDB.setLogin("updateLogin");
         userFromDB.setUpdateDate(updateTime);
         userDao.update(userFromDB);
         assertEquals(updateTime, userFromDB.getUpdateDate());
@@ -88,7 +88,7 @@ public class AppUserInfoDaoTest {
     @Test
     public void findUserWIthInfoByLoginTest() {
         AppUserInfoDto userFromDB = userDao
-                .findUserWIthInfoByLogin("login2");
+                .findUserWIthInfoById("login2");
         assertEquals("login2", userFromDB.getLogin());
     }
 

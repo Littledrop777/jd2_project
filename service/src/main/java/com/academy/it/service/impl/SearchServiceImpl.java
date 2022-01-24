@@ -2,6 +2,7 @@ package com.academy.it.service.impl;
 
 import com.academy.it.dao.AppUserDao;
 import com.academy.it.dto.SearchUserResultDto;
+import com.academy.it.service.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

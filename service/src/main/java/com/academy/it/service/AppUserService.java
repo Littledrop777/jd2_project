@@ -3,6 +3,7 @@ package com.academy.it.service;
 import com.academy.it.dto.AddNewUserDto;
 import com.academy.it.dto.AppUserInfoDto;
 import com.academy.it.dto.LoginUserDto;
+import com.academy.it.dto.UpdateUserDto;
 import com.academy.it.entity.AppUser;
 
 import java.util.List;
@@ -13,18 +14,15 @@ public interface AppUserService {
 
     List<String> loginUser(LoginUserDto loginUserDto);
 
-    AppUserInfoDto findUserWIthInfoByLogin(String login);
+    AppUserInfoDto findUserWIthInfoById(String id);
 
     AppUser findByLogin(String login);
 
-    AppUser save(AppUser user);
-
-    List<AppUser> findAll();
-
     AppUser findById(String id);
 
-    void update(AppUser appUser);
+    void save(AppUser user);
+
+    void updateUser(UpdateUserDto userDto, String userId);
 
     void delete(String id);
-
 }

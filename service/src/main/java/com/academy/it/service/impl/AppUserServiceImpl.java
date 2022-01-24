@@ -2,9 +2,11 @@ package com.academy.it.service.impl;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.academy.it.dao.AppUserDao;
+import com.academy.it.dao.UserInfoDao;
 import com.academy.it.dto.AddNewUserDto;
 import com.academy.it.dto.AppUserInfoDto;
 import com.academy.it.dto.LoginUserDto;
+import com.academy.it.dto.UpdateUserDto;
 import com.academy.it.entity.AppUser;
 import com.academy.it.entity.Role;
 import com.academy.it.entity.UserInfo;
@@ -62,7 +64,6 @@ public class AppUserServiceImpl implements AppUserService {
     }
 
     @Override
-    @Transactional
     public List<String> addNewUser(AddNewUserDto command) {
         UserInfo info = UserInfo.builder()
                 .firstname(command.getFirstname())
@@ -87,18 +88,49 @@ public class AppUserServiceImpl implements AppUserService {
     }
 
     @Override
-    @Transactional
-    public AppUser save(AppUser user) {
+    public void save(AppUser user) {
         char[] charsOfPassword = user.getPassword().toCharArray();
         String encryptedPassword = hasher.hashToString(MIN_COST, charsOfPassword);
         user.setPassword(encryptedPassword);
         user.setCreateDate(Instant.now());
-        return appUserDao.save(user);
+        appUserDao.save(user);
     }
 
     @Override
-    public AppUserInfoDto findUserWIthInfoByLogin(String login) {
-        return appUserDao.findUserWIthInfoByLogin(login);
+    public void updateUser(UpdateUserDto userDto, String userId) {
+        AppUser user = appUserDao.findById(userId);
+        UserInfo userInfo = user.getUserInfo();
+
+        if (!userDto.getLogin().isEmpty() && !user.getLogin().equals(userDto.getLogin())) {
+            user.setLogin(userDto.getLogin());
+        }
+        if (!userDto.getPassword().isEmpty() && !user.getPassword().equals(userDto.getPassword())) {
+            user.setPassword(userDto.getPassword());
+        }
+        if (!userDto.getFirstname().isEmpty() && !userInfo.getFirstname().equals(userDto.getFirstname())) {
+            userInfo.setFirstname(userDto.getFirstname());
+        }
+        if (!userDto.getLastname().isEmpty() && !userInfo.getLastname().equals(userDto.getLastname())) {
+            userInfo.setLastname(userDto.getLastname());
+        }
+        if (!userDto.getEmail().isEmpty() && !userInfo.getEmail().equals(userDto.getEmail())) {
+            userInfo.setEmail(userDto.getEmail());
+        }
+        if (userDto.getBirthday() != null && !userInfo.getBirthday().equals(userDto.getBirthday())) {
+            userInfo.setBirthday(userDto.getBirthday());
+        }
+        if (userDto.getGender() != null && !userInfo.getGender().equals(userDto.getGender())) {
+            userInfo.setGender(userDto.getGender());
+        }
+        userInfo.setUpdateDate(Instant.now());
+        user.setUserInfo(userInfo);
+        user.setUpdateDate(Instant.now());
+        appUserDao.update(user);
+    }
+
+    @Override
+    public AppUserInfoDto findUserWIthInfoById(String id) {
+        return appUserDao.findUserWIthInfoById(id);
     }
 
     @Override
@@ -107,23 +139,11 @@ public class AppUserServiceImpl implements AppUserService {
     }
 
     @Override
-    public List<AppUser> findAll() {
-        return appUserDao.findAll();
-    }
-
-    @Override
     public AppUser findById(String id) {
         return appUserDao.findById(id);
     }
 
     @Override
-    @Transactional
-    public void update(AppUser user) {
-        appUserDao.update(user);
-    }
-
-    @Override
-    @Transactional
     public void delete(String id) {
         appUserDao.delete(id);
     }

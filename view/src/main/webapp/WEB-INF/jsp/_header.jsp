@@ -10,6 +10,8 @@
     <link href="${pageContext.request.contextPath}/css/search.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/profile.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/result.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/signup.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/error.css" rel="stylesheet">
     <title>Profile</title>
 </head>
 <body>

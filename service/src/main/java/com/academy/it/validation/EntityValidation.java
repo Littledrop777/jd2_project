@@ -7,4 +7,5 @@ import java.util.List;
 public interface EntityValidation <T extends BaseEntity<String>> {
 
     List<String> validate(T entity);
+
 }

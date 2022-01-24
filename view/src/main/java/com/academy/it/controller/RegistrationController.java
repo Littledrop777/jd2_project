@@ -46,7 +46,7 @@ public class RegistrationController {
                     .addObject("error", errors.get(0));
         }
         AppUser currentUser = userService.findByLogin(addNewUserDto.getLogin());
-        return new ModelAndView("redirect:" + addNewUserDto.getLogin() + "/profile.html")
+        return new ModelAndView("redirect:" + currentUser.getId() + "/profile.html")
                 .addObject("currentUser", currentUser);
     }
 }

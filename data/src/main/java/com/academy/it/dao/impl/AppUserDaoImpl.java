@@ -14,14 +14,14 @@ import java.util.List;
 public class AppUserDaoImpl extends BaseDao<AppUser, String> implements AppUserDao {
 
     private static final String FIND_BY_LOGIN_QUERY = "SELECT u FROM AppUser u WHERE u.login=:u_login";
-    private static final String FIND_USER_INFO_BY_LOGIN_QUERY =
+    private static final String FIND_USER_INFO_BY_ID_QUERY =
             "SELECT new com.academy.it.dto.AppUserInfoDto(u.login, inf.firstname, inf.lastname, inf.email, inf.birthday, inf.gender) " +
                     "FROM AppUser u " +
                     "JOIN UserInfo inf on u.id = inf.appUser.id " +
-                    "WHERE u.login = :u_login";
+                    "WHERE u.id = :u_id";
 
     private static final String FIND_BY_CRITERIA_QUERY =
-            "SELECT new com.academy.it.dto.SearchUserResultDto(u.login, inf.firstname, inf.lastname) " +
+            "SELECT new com.academy.it.dto.SearchUserResultDto(u.id, u.login, inf.firstname, inf.lastname) " +
                     "FROM AppUser u " +
                     "JOIN UserInfo inf on u.id = inf.appUser.id " +
                     "WHERE LOWER(u.login)  LIKE LOWER('%%%s%%') " +
@@ -42,10 +42,10 @@ public class AppUserDaoImpl extends BaseDao<AppUser, String> implements AppUserD
     }
 
     @Override
-    public AppUserInfoDto findUserWIthInfoByLogin(String login) {
+    public AppUserInfoDto findUserWIthInfoById(String id) {
         Session session = getSession();
-        Query<AppUserInfoDto> query = session.createQuery(FIND_USER_INFO_BY_LOGIN_QUERY, AppUserInfoDto.class);
-        query.setParameter("u_login", login);
+        Query<AppUserInfoDto> query = session.createQuery(FIND_USER_INFO_BY_ID_QUERY, AppUserInfoDto.class);
+        query.setParameter("u_id", id);
         return query.uniqueResult();
     }
 
