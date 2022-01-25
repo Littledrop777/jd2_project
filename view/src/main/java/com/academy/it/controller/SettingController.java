@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -25,8 +26,8 @@ public class SettingController {
     }
 
     @GetMapping("/settings.html")
-    public ModelAndView showSettingsView(HttpServletRequest request) {
-        if (request.getSession().getAttribute("currentUser") == null) {
+    public ModelAndView showSettingsView(HttpSession session) {
+        if (session.getAttribute("userId") == null) {
             return new ModelAndView("redirect:/login.html");
         }
         return new ModelAndView("settings")
