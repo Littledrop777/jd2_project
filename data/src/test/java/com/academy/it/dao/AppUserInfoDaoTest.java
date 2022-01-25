@@ -7,7 +7,9 @@ import com.academy.it.entity.AppUser;
 import com.academy.it.entity.Role;
 import com.academy.it.entity.UserInfo;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
+import com.github.springtestdbunit.annotation.DatabaseOperation;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
+import com.github.springtestdbunit.annotation.DatabaseTearDown;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +32,7 @@ import static org.junit.Assert.assertNotNull;
         {DependencyInjectionTestExecutionListener.class,
                 DbUnitTestExecutionListener.class})
 @DatabaseSetup(value = "dataForTest.xml")
-//@DatabaseTearDown(value = "dataForTest.xml", type = DatabaseOperation.DELETE_ALL)
+@DatabaseTearDown(value = "dataForTest.xml", type = DatabaseOperation.DELETE_ALL)
 public class AppUserInfoDaoTest {
 
     @Autowired
@@ -88,8 +90,9 @@ public class AppUserInfoDaoTest {
     @Test
     public void findUserWIthInfoByLoginTest() {
         AppUserInfoDto userFromDB = userDao
-                .findUserWIthInfoById("login2");
+                .findUserWIthInfoById("2c93a0817dec3a6a017dec3a71200002");
         assertEquals("login2", userFromDB.getLogin());
+        assertEquals("User1", userFromDB.getFirstname());
     }
 
     @Test

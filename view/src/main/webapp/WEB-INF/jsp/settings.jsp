@@ -7,7 +7,7 @@
     <div class="container-prof" style="flex-direction: column">
         <h2 style="text-align: center">Settings</h2>
         <div class="form-wrapper">
-            <f:form action="${pageContext.request.contextPath}/${sessionScope.currentUser.id}/update-settings.do" method="post"
+            <f:form action="${pageContext.request.contextPath}/${sessionScope.userId}/update-settings.do" method="post"
                     modelAttribute="updateUserDto">
                 <c:if test="${not empty error}">
                     <p class="error">

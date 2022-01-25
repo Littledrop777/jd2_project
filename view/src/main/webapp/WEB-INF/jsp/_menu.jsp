@@ -3,10 +3,10 @@
     <nav class="navigation">
         <ul>
             <c:choose>
-                <c:when test="${not empty sessionScope.currentUser}">
+                <c:when test="${not empty sessionScope.userId}">
                     <li>
                         <a class="account"
-                           href="${pageContext.request.contextPath}/${sessionScope.currentUser.id}/profile.html">
+                           href="${pageContext.request.contextPath}/${sessionScope.userId}/profile.html">
                             My Profile
                         </a>
                     </li>

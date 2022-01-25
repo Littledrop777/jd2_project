@@ -20,9 +20,11 @@ public interface AppUserService {
 
     AppUser findById(String id);
 
+    void updateUser(UpdateUserDto userDto, String userId);
+
     void save(AppUser user);
 
-    void updateUser(UpdateUserDto userDto, String userId);
+    void update(AppUser user);
 
     void delete(String id);
 }

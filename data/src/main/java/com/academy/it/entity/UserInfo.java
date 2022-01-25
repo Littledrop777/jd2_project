@@ -38,6 +38,7 @@ public class UserInfo implements BaseEntity<String> {
     private String email;
     private LocalDate birthday;
     private String gender;
+    private String image;
     @Column(name = "update_date")
     private Instant updateDate;
     @OneToOne

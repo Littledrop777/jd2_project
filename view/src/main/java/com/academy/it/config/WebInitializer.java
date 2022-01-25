@@ -2,9 +2,11 @@ package com.academy.it.config;
 
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.multipart.support.MultipartFilter;
 import org.springframework.web.servlet.DispatcherServlet;
 
 import javax.servlet.FilterRegistration;
+import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletContainerInitializer;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -29,5 +31,11 @@ public class WebInitializer implements ServletContainerInitializer {
         FilterRegistration.Dynamic filterRegistration = servletContext
                 .addFilter("characterEncodingFilter", characterEncodingFilter);
         filterRegistration.addMappingForUrlPatterns(null, false, "/*");
+
+        MultipartConfigElement multipartConfig = new MultipartConfigElement("D:/work/network");
+        dispatcher.setMultipartConfig(multipartConfig);
+        dispatcher.setLoadOnStartup(1);
+        FilterRegistration.Dynamic multipartFilter = servletContext.addFilter("multipartFilter", MultipartFilter.class);
+        multipartFilter.addMappingForUrlPatterns(null, true, "/*");
     }
 }

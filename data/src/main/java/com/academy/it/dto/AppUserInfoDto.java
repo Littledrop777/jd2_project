@@ -17,4 +17,5 @@ public class AppUserInfoDto {
     private String email;
     private LocalDate birthday;
     private String gender;
+    private String imagePath;
 }

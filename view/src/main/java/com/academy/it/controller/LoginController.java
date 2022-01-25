@@ -16,7 +16,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@SessionAttributes("currentUser")
+@SessionAttributes("userId")
 public class LoginController {
 
     private final AppUserService userService;
@@ -47,7 +47,7 @@ public class LoginController {
         }
         AppUser currentUser = userService.findByLogin(loginUserDto.getLogin());
         return new ModelAndView("redirect:" + currentUser.getId() + "/profile.html")
-                .addObject("currentUser", currentUser);
+                .addObject("userId", currentUser.getId());
 
     }
 }

@@ -24,11 +24,12 @@
             (
                 info_id     varchar(200),
                 app_user_id     varchar(200) NOT NULL,
-                firstname   varchar(50)  NOT NULL,
+                firstname   varchar(100)  NOT NULL,
                 lastname    varchar(100) DEFAULT NULL,
-                email       varchar(50)  NOT NULL UNIQUE,
+                email       varchar(100)  NOT NULL UNIQUE,
                 birthday    timestamp NULL DEFAULT NULL,
-                gender      varchar(50),
+                gender      varchar(100),
+                image       varchar(124),
                 update_date timestamp NULL DEFAULT NULL,
                 PRIMARY KEY (info_id),
                 FOREIGN KEY (app_user_id) REFERENCES app_user (user_id)

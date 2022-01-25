@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-
 @Controller
 public class UserProfileController {
 
@@ -17,7 +15,7 @@ public class UserProfileController {
     private AppUserService appUserService;
 
     @GetMapping("/{id}/profile.html")
-    public ModelAndView showUserProfile(@PathVariable String id, HttpServletRequest request) {
+    public ModelAndView showUserProfile(@PathVariable String id) {
         AppUserInfoDto userInfoDto = appUserService.findUserWIthInfoById(id);
         return new ModelAndView("profile")
                 .addObject("userInfoDto", userInfoDto);

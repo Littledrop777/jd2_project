@@ -97,6 +97,11 @@ public class AppUserServiceImpl implements AppUserService {
     }
 
     @Override
+    public void update(AppUser user) {
+        appUserDao.update(user);
+    }
+
+    @Override
     public void updateUser(UpdateUserDto userDto, String userId) {
         AppUser user = appUserDao.findById(userId);
         UserInfo userInfo = user.getUserInfo();
@@ -147,4 +152,5 @@ public class AppUserServiceImpl implements AppUserService {
     public void delete(String id) {
         appUserDao.delete(id);
     }
+
 }

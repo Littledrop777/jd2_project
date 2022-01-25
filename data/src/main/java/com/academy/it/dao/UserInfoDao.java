@@ -5,5 +5,7 @@ import com.academy.it.entity.UserInfo;
 public interface UserInfoDao extends Dao<UserInfo, String> {
 
     UserInfo findByEmail(String email);
+
+    UserInfo findByUserId(String userId);
 }
 

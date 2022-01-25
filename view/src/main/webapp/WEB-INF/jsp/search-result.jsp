@@ -8,7 +8,7 @@
         <table>
             <tbody>
             <c:forEach items="${results}" var="result">
-                <c:if test="${result.uuid ne sessionScope.currentUser.id}">
+                <c:if test="${result.uuid ne sessionScope.userId}">
                     <tr>
                         <td>
                             <a href="${pageContext.request.contextPath}/${result.uuid}/profile.html">

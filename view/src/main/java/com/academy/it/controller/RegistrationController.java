@@ -9,14 +9,16 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@SessionAttributes("currentUser")
+@SessionAttributes("userId")
 public class RegistrationController {
 
     private final AppUserService userService;
@@ -35,7 +37,7 @@ public class RegistrationController {
     @PostMapping("/registration-new-user.do")
     public ModelAndView registrationNewUser(@ModelAttribute("addNewUserDto")
                                             @Valid AddNewUserDto addNewUserDto,
-                                            BindingResult result) {
+                                            BindingResult result){
         if (result.hasErrors()) {
             return new ModelAndView("registration")
                     .addObject("error", result.getAllErrors().get(0).getDefaultMessage());
@@ -47,6 +49,6 @@ public class RegistrationController {
         }
         AppUser currentUser = userService.findByLogin(addNewUserDto.getLogin());
         return new ModelAndView("redirect:" + currentUser.getId() + "/profile.html")
-                .addObject("currentUser", currentUser);
+                .addObject("userId", currentUser.getId());
     }
 }
