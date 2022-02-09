@@ -6,6 +6,8 @@ import com.academy.it.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
+
 @Service
 public class UserInfoServiceImpl implements UserInfoService {
 
@@ -18,6 +20,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 
     @Override
     public void update(UserInfo info) {
+        info.setUpdateDate(Instant.now());
         infoDao.update(info);
     }
 

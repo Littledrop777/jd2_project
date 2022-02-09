@@ -29,9 +29,21 @@
                 email       varchar(100)  NOT NULL UNIQUE,
                 birthday    timestamp NULL DEFAULT NULL,
                 gender      varchar(100),
-                image       varchar(124),
+                avatar_id   varchar(200),
                 update_date timestamp NULL DEFAULT NULL,
                 PRIMARY KEY (info_id),
+                FOREIGN KEY (app_user_id) REFERENCES app_user (user_id)
+                )
+                CHARACTER SET utf8
+                COLLATE utf8_general_ci;
+
+            CREATE TABLE IF NOT EXISTS image
+            (
+                img_id      varchar(200),
+                app_user_id varchar(200) NOT NULL,
+                image_path  varchar(100) NOT NULL,
+                create_date timestamp    NULL DEFAULT NULL,
+                PRIMARY KEY (img_id),
                 FOREIGN KEY (app_user_id) REFERENCES app_user (user_id)
                 )
                 CHARACTER SET utf8

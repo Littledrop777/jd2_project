@@ -1,6 +1,7 @@
 package com.academy.it.config;
 
 import com.academy.it.entity.AppUser;
+import com.academy.it.entity.Image;
 import com.academy.it.entity.UserInfo;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -71,7 +72,7 @@ public class RepositoryConfiguration {
         sessionFactory.setHibernateProperties(properties);
 
         sessionFactory.setAnnotatedPackages("com.academy.it");
-        sessionFactory.setAnnotatedClasses(AppUser.class, UserInfo.class);
+        sessionFactory.setAnnotatedClasses(AppUser.class, UserInfo.class, Image.class);
 
         return sessionFactory;
     }

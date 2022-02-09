@@ -1,6 +1,7 @@
 package com.academy.it.config;
 
 import com.academy.it.entity.AppUser;
+import com.academy.it.entity.Image;
 import com.academy.it.entity.UserInfo;
 import com.github.springtestdbunit.bean.DatabaseConfigBean;
 import com.github.springtestdbunit.bean.DatabaseDataSourceConnectionFactoryBean;
@@ -74,7 +75,7 @@ public class TestConfiguration {
         sessionFactory.setHibernateProperties(properties);
 
         sessionFactory.setAnnotatedPackages("com.academy.it.entity");
-        sessionFactory.setAnnotatedClasses(AppUser.class, UserInfo.class);
+        sessionFactory.setAnnotatedClasses(AppUser.class, UserInfo.class, Image.class);
 
         return sessionFactory;
     }

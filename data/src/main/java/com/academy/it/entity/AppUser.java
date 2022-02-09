@@ -11,11 +11,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.time.Instant;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -43,6 +47,8 @@ public class AppUser implements BaseEntity<String> {
     private Instant updateDate;
     @OneToOne(mappedBy = "appUser", cascade = CascadeType.ALL)
     private UserInfo userInfo;
+    @OneToMany(mappedBy = "appUser", cascade = CascadeType.ALL)
+    private List<Image> images;
 
     public void setUserInfo(UserInfo userInfo) {
         this.userInfo = userInfo;

@@ -98,6 +98,7 @@ public class AppUserServiceImpl implements AppUserService {
 
     @Override
     public void update(AppUser user) {
+        user.setUpdateDate(Instant.now());
         appUserDao.update(user);
     }
 

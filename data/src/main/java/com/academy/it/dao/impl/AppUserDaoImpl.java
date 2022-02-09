@@ -15,7 +15,7 @@ public class AppUserDaoImpl extends BaseDao<AppUser, String> implements AppUserD
 
     private static final String FIND_BY_LOGIN_QUERY = "SELECT u FROM AppUser u WHERE u.login=:u_login";
     private static final String FIND_USER_INFO_BY_ID_QUERY =
-            "SELECT new com.academy.it.dto.AppUserInfoDto(u.login, inf.firstname, inf.lastname, inf.email, inf.birthday, inf.gender, inf.image) " +
+            "SELECT new com.academy.it.dto.AppUserInfoDto(u.login, inf.firstname, inf.lastname, inf.email, inf.birthday, inf.gender, inf.avatarId) " +
                     "FROM AppUser u " +
                     "JOIN UserInfo inf on u.id = inf.appUser.id " +
                     "WHERE u.id = :u_id";

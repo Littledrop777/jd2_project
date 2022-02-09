@@ -6,7 +6,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<%--    <style>
+        <%@include file="/css/search.css"%>
+        <%@include file="/css/profile.css"%>
+        <%@include file="/css/result.css"%>
+        <%@include file="/css/signup.css"%>
+        <%@include file="/css/error.css"%>
+
+    </style>--%>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="${pageContext.request.contextPath}/css/download.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/search.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/profile.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/result.css" rel="stylesheet">
