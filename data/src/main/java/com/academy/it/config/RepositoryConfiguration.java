@@ -1,7 +1,10 @@
 package com.academy.it.config;
 
 import com.academy.it.entity.AppUser;
+import com.academy.it.entity.Chat;
+import com.academy.it.entity.Friend;
 import com.academy.it.entity.Image;
+import com.academy.it.entity.UserChat;
 import com.academy.it.entity.UserInfo;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -46,6 +49,8 @@ public class RepositoryConfiguration {
         properties.setProperty("show_sql", "true");
         properties.setProperty("format_sql", "true");
         properties.setProperty("hibernate.hbm2ddl.auto", "update");
+//        properties.setProperty("hibernate.physical_naming_strategy", "org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl");
+//        properties.setProperty("hibernate.implicit_naming_strategy", "org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl");
         return properties;
     }
 
@@ -72,7 +77,8 @@ public class RepositoryConfiguration {
         sessionFactory.setHibernateProperties(properties);
 
         sessionFactory.setAnnotatedPackages("com.academy.it");
-        sessionFactory.setAnnotatedClasses(AppUser.class, UserInfo.class, Image.class);
+        sessionFactory.setAnnotatedClasses(
+                AppUser.class, UserInfo.class, Image.class, Friend.class, Chat.class, UserChat.class);
 
         return sessionFactory;
     }

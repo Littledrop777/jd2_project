@@ -7,10 +7,20 @@
     width: 45%;
 }
 
-div.container-result h1{
+div.container-result h2 {
     text-align: center;
+    margin: auto;
 }
 
-div.container-result table{
-    margin: auto;
+div.container-result table {
+    padding: 10px;
+    width: 100%;
+}
+
+div.container-result form {
+    margin: 0;
+}
+
+td.btn {
+    width: 504px;
 }

@@ -2,7 +2,6 @@ package com.academy.it.service.impl;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.academy.it.dao.AppUserDao;
-import com.academy.it.dao.UserInfoDao;
 import com.academy.it.dto.AddNewUserDto;
 import com.academy.it.dto.AppUserInfoDto;
 import com.academy.it.dto.LoginUserDto;
@@ -15,8 +14,8 @@ import com.academy.it.validation.InfoValidation;
 import com.academy.it.validation.UserValidation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;

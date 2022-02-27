@@ -10,7 +10,6 @@ import javax.transaction.Transactional;
 import java.io.Serializable;
 import java.util.List;
 
-@Transactional
 public abstract class BaseDao<E extends BaseEntity<K>, K extends Serializable> implements Dao<E, K> {
 
     @Autowired

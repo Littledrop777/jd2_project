@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.CascadeType;
@@ -25,6 +26,7 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @EqualsAndHashCode(of = "login")
+@ToString(exclude = {"images", "userInfo"})
 @Entity
 @Table(name = "app_user")
 public class AppUser implements BaseEntity<String> {
@@ -43,7 +45,7 @@ public class AppUser implements BaseEntity<String> {
     private Role role;
     @Column(name = "create_date")
     private Instant createDate;
-    @Column(name = "update_date")
+    @Column(name = "update_Date")
     private Instant updateDate;
     @OneToOne(mappedBy = "appUser", cascade = CascadeType.ALL)
     private UserInfo userInfo;

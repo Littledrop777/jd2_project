@@ -38,7 +38,7 @@
                 <f:input type="text" path="login" name="username" id="username" placeholder="User Name"/>
             </div>
             <div class="form-item">
-                <label for="email" class="required-field">E-mail:</label>
+                <label for="email">E-mail:</label>
                 <f:input type="email" path="email" name="email" id="email" placeholder="email@xyz.com"/>
             </div>
             <div class="form-item">
@@ -52,7 +52,7 @@
                          placeholder="repassword" autocomplete="off"/>
             </div>
             <div class="form-item">
-                <label style="width: 151px" for="birthday" class="required-field">Birthday:</label>
+                <label style="width: 151px" for="birthday">Birthday:</label>
                 <f:input type="date" path="birthday" id="birthday" name="birthday" min="01.01.1920"/>
             </div>
             <div class="form-item">

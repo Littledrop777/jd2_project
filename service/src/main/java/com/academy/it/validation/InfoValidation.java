@@ -22,7 +22,7 @@ public class InfoValidation implements EntityValidation<UserInfo> {
     @Override
     public List<String> validate(UserInfo info) {
         List<String> errors = new ArrayList<>();
-        if (userInfoDao.findByEmail(info.getEmail()) != null) {
+        if (!info.getEmail().isEmpty() && userInfoDao.findByEmail(info.getEmail()) != null) {
             errors.add(USER_WITH_EMAIL_ALREADY_EXIST_MSG);
         }
         return errors;

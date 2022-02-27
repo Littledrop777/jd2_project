@@ -3,12 +3,12 @@ package com.academy.it.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -19,26 +19,25 @@ import java.time.Instant;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(exclude = "appUser")
 @Entity
-@Table(name = "image")
-public class Image implements BaseEntity<String>{
+@Table(name = "friend")
+public class Friend implements BaseEntity<String>{
 
     @Id
-    @Column(name = "img_id")
+    @Column(name = "friend_id")
     @GeneratedValue(generator = "uuid-generator")
     @GenericGenerator(name = "uuid-generator", strategy = "uuid")
     private String id;
-    @Column(name = "image_path")
-    private String imagePath;
+    @ManyToOne
+    @JoinColumn(name = "user_one_id")
+    private AppUser firstFriend;
+    @ManyToOne
+    @JoinColumn(name = "user_two_id")
+    private AppUser secondFriend;
+    @Enumerated(EnumType.STRING)
+    private Status status;
     @Column(name = "create_date")
     private Instant createDate;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "app_user_id")
-    private AppUser appUser;
-
-    public void setAppUser(AppUser appUser) {
-        this.appUser = appUser;
-        this.appUser.getImages().add(this);
-    }
+    @Column(name = "update_date")
+    private Instant updateDate;
 }

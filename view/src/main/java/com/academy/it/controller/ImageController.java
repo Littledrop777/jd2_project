@@ -1,8 +1,8 @@
 package com.academy.it.controller;
 
 import com.academy.it.entity.UserInfo;
+import com.academy.it.service.ImageService;
 import com.academy.it.service.UserInfoService;
-import com.academy.it.service.impl.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -33,7 +33,7 @@ public class ImageController {
     @GetMapping(value = "/images.html", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
     public @ResponseBody
     ResponseEntity<byte[]> showImage(@RequestParam("imgId") String avatarId) throws IOException {
-        byte[] image = imageService.get(avatarId);
+        byte[] image = imageService.getImageBytes(avatarId);
         return new ResponseEntity<>(image, HttpStatus.CREATED);
     }
 

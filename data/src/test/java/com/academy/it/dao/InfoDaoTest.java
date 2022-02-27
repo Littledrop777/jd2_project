@@ -13,6 +13,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
+import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -23,9 +25,11 @@ import static org.junit.Assert.assertNotNull;
 @ContextConfiguration(classes = TestConfiguration.class)
 @RunWith(SpringJUnit4ClassRunner.class)
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class,
+        TransactionalTestExecutionListener.class,
         DbUnitTestExecutionListener.class})
 @DatabaseSetup("dataForTest.xml")
 @DatabaseTearDown(value = "dataForTest.xml", type = DatabaseOperation.DELETE_ALL)
+@Transactional
 public class InfoDaoTest {
 
     @Autowired
@@ -36,7 +40,7 @@ public class InfoDaoTest {
     public void findAllTest() {
         List<UserInfo> all = infoDao.findAll();
         assertFalse(all.isEmpty());
-        assertEquals(4, all.size());
+        assertEquals(5, all.size());
     }
 
     @Test
@@ -56,4 +60,8 @@ public class InfoDaoTest {
         assertEquals(infoFromDB, updatedInfo);
     }
 
+    @Test
+    public void pageCount() {
+
+    }
 }

@@ -8,37 +8,33 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import java.time.Instant;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(exclude = "appUser")
 @Entity
-@Table(name = "image")
-public class Image implements BaseEntity<String>{
+@Table(name = "chat")
+public class Chat implements BaseEntity<String> {
 
     @Id
-    @Column(name = "img_id")
+    @Column(name = "chat_id")
     @GeneratedValue(generator = "uuid-generator")
     @GenericGenerator(name = "uuid-generator", strategy = "uuid")
     private String id;
-    @Column(name = "image_path")
-    private String imagePath;
-    @Column(name = "create_date")
-    private Instant createDate;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "user_chat_id")
+    private UserChat userChat;
+    @ManyToOne
     @JoinColumn(name = "app_user_id")
     private AppUser appUser;
-
-    public void setAppUser(AppUser appUser) {
-        this.appUser = appUser;
-        this.appUser.getImages().add(this);
-    }
+    private String message;
+    @Column(name = "create_time")
+    private LocalDateTime createTime;
 }
+

@@ -26,7 +26,7 @@
                 app_user_id     varchar(200) NOT NULL,
                 firstname   varchar(100)  NOT NULL,
                 lastname    varchar(100) DEFAULT NULL,
-                email       varchar(100)  NOT NULL UNIQUE,
+                email       varchar(100)  DEFAULT NULL,
                 birthday    timestamp NULL DEFAULT NULL,
                 gender      varchar(100),
                 avatar_id   varchar(200),
@@ -42,12 +42,55 @@
                 img_id      varchar(200),
                 app_user_id varchar(200) NOT NULL,
                 image_path  varchar(100) NOT NULL,
-                create_date timestamp    NULL DEFAULT NULL,
+                create_date timestamp  NOT NULL,
                 PRIMARY KEY (img_id),
                 FOREIGN KEY (app_user_id) REFERENCES app_user (user_id)
                 )
                 CHARACTER SET utf8
                 COLLATE utf8_general_ci;
+
+            CREATE TABLE IF NOT EXISTS friend
+            (
+                friend_id   varchar(200),
+                user_one_id varchar(200) NOT NULL,
+                user_two_id varchar(200) NOT NULL,
+                status      varchar(50) NOT NULL,
+                create_date timestamp NOT NULL,
+                update_date timestamp    NULL DEFAULT NULL,
+                PRIMARY KEY (friend_id),
+                FOREIGN KEY (user_one_id) REFERENCES app_user (user_id),
+                FOREIGN KEY (user_two_id) REFERENCES app_user (user_id)
+                )
+                CHARACTER SET utf8
+                COLLATE utf8_general_ci;
+
+            CREATE TABLE IF NOT EXISTS user_chat
+            (
+                user_chat_id varchar(200),
+                one_user_id  varchar(200) NOT NULL,
+                two_user_id  varchar(200) NOT NULL,
+                create_date  timestamp    NOT NULL,
+                PRIMARY KEY (user_chat_id),
+                FOREIGN KEY (one_user_id) REFERENCES app_user (user_id),
+                FOREIGN KEY (two_user_id) REFERENCES app_user (user_id)
+                )
+                CHARACTER SET utf8
+                COLLATE utf8_general_ci;
+
+            CREATE TABLE IF NOT EXISTS chat
+            (
+                chat_id     varchar(200),
+                user_chat_id varchar(200) NOT NULL,
+                app_user_id     varchar(200) NOT NULL,
+                message     text,
+                create_time timestamp    NOT NULL,
+                PRIMARY KEY (chat_id),
+                FOREIGN KEY (user_chat_id) REFERENCES user_chat (user_chat_id),
+                FOREIGN KEY (app_user_id) REFERENCES app_user (user_id)
+                )
+            CHARACTER SET utf8
+            COLLATE utf8_general_ci;
+
         </sql>
     </changeSet>
 </databaseChangeLog>

@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="com.academy.it.entity.Status" %>
+
 <jsp:include page="_header.jsp"/>
 <div class="profile">
     <jsp:include page="_menu.jsp"/>
@@ -17,6 +19,30 @@
                                     ${result.lastname}
                             </a>
                         </td>
+                        <c:if test="${not empty sessionScope.userId}">
+                            <td>
+                                <c:choose>
+                                    <c:when test="${not empty result.status and result.status eq Status.REQUESTED}">
+                                        <form method="post"
+                                              action="${pageContext.request.contextPath}/delete-friend.do?id=${result.uuid}">
+                                            <button style="background: red; color: black" type="submit">cancel</button>
+                                        </form>
+                                    </c:when>
+                                    <c:when test="${not empty result.status and result.status eq Status.ACCEPTED}">
+                                        <form method="post"
+                                              action="${pageContext.request.contextPath}/delete-friend.do?id=${result.uuid}">
+                                            <button style="background: red; color: black" type="submit">delete</button>
+                                        </form>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <form method="post"
+                                              action="${pageContext.request.contextPath}/add-friend.do?id=${result.uuid}">
+                                            <button type="submit">add friend</button>
+                                        </form>
+                                    </c:otherwise>
+                                </c:choose>
+                            </td>
+                        </c:if>
                     </tr>
                 </c:if>
             </c:forEach>

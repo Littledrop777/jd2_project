@@ -10,8 +10,16 @@
                             My Profile
                         </a>
                     </li>
-                    <li><a class="friends" href="#">Friends</a></li>
-                    <li><a class="messenger" href="#">Messenger</a></li>
+                    <li>
+                        <a class="friends" href="${pageContext.request.contextPath}/1/friends.html">
+                            Friends
+                        </a>
+                    </li>
+                    <li>
+                        <a class="messenger" href="${pageContext.request.contextPath}/chats.html">
+                            Messenger
+                        </a>
+                    </li>
                     <li><a class="news" href="#">News</a></li>
                     <li>
                         <a class="settings" href="${pageContext.request.contextPath}/settings.html">

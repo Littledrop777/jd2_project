@@ -5,7 +5,6 @@ import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -28,7 +27,6 @@ public class AddNewUserDto {
     @NotBlank(message = "Username should not be empty")
     @Size(min = 2, max = 20, message = "Login should be from 2 to 20 characters ")
     private String login;
-    @NotEmpty(message = "Email should not be empty")
     @Email(message = "Email should be valid")
     private String email;
     @NotEmpty(message = "Password should not be empty")
@@ -39,7 +37,6 @@ public class AddNewUserDto {
     @NotEmpty(message = "Repeat password should not be empty")
     private String repeatPassword;
     @Past(message = "Birthday should be valid")
-    @NotNull(message = "Birthday should not be empty")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate birthday;
     private String gender;

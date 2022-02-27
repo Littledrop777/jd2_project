@@ -7,18 +7,12 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class SearchUserResultDto {
+@AllArgsConstructor
+public class UserFriendDto {
 
-    private String uuid;
+    private String id;
     private String login;
     private String firstname;
     private String lastname;
     private Status status;
-
-    public SearchUserResultDto(String uuid, String login, String firstname, String lastname) {
-        this.uuid = uuid;
-        this.login = login;
-        this.firstname = firstname;
-        this.lastname = lastname;
-    }
 }

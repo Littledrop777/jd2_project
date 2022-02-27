@@ -37,7 +37,7 @@ html {
     display: flex;
     flex-direction: column;
     width: 64%;
-    padding-left: 56px;
+    padding-left: 20px;
     padding-top: 13px;
     align-items: stretch;
 }
@@ -80,6 +80,19 @@ nav a {
     height: 25px;
     width: 66%;
     color: black;
+}
+button {
+    margin: 0 5px;
+    background: #1e90ff;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1px 15px;
+    border-radius: 17px;
+    color: #fbfbfb;
+    border: 0;
+    cursor: pointer;
+    height: 35px;
+    width: 117px;
 }
 
 a.account {
@@ -166,5 +179,5 @@ a.logout:hover {
     border: 0 solid #4e60a1;
     box-shadow: 0 0 8px 3px #4e60a1;
     display: block;
-    margin: 20px;
+    margin: 20px 35px;
 }
