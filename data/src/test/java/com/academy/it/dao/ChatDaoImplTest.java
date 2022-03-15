@@ -2,7 +2,7 @@ package com.academy.it.dao;
 
 import com.academy.it.annotation.IT;
 import com.academy.it.config.TestConfiguration;
-import com.academy.it.entity.UserInfo;
+import com.academy.it.dto.ChatDto;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseOperation;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
@@ -19,40 +19,21 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 @IT
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
-public class InfoDaoTest {
+public class ChatDaoImplTest {
 
     @Autowired
-    private UserInfoDao infoDao;
-
-
-    @Test
-    public void findAllTest() {
-        List<UserInfo> all = infoDao.findAll();
-        assertFalse(all.isEmpty());
-        assertEquals(5, all.size());
-    }
+    private ChatDao chatDao;
 
     @Test
-    public void findByIdTest() {
-        UserInfo byId = infoDao.findById("2c93a0817dec3a6a017dec3a716c0001");
-        assertNotNull(byId);
-    }
-
-    @Test
-    public void updateTest() {
-        UserInfo infoFromDB = infoDao.findById("2c93a0817dec3a6a017dec3a716c0001");
-        UserInfo updatedInfo = infoDao.findById("2c93a0817dec3a6a017dec3a716c0001");
-        updatedInfo.setId("2c93a0817dec3a6a017dec3a716c0001");
-        updatedInfo.setFirstname("Vasiliy");
-        updatedInfo.setLastname("Ivanov");
-        infoDao.update(updatedInfo);
-        assertEquals(infoFromDB, updatedInfo);
+    public void findAllByUserChatId() {
+        List<ChatDto> messages = chatDao.findAllByUserChatId("5c93a0817dec3a6a017dec3a840c0001",0, 5);
+        assertEquals(5, messages.size());
+        assertEquals("Buy", messages.get(0).getMessage());
+        messages.forEach(System.out::println);
     }
 }

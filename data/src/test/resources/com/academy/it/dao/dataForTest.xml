@@ -17,17 +17,18 @@
     <friend friend_id="3c93a0817dec3a6a017dec3a720c0003" user_one_id="2c93a0817dec3a6a017dec3a71200002" user_two_id="2c93a0817dec3a6a017dec3a71200003" status="REQUESTED"/>
     <friend friend_id="3c93a0817dec3a6a017dec3a720c0004" user_one_id="2c93a0817dec3a6a017dec3a71200003" user_two_id="2c93a0817dec3a6a017dec3a71200004" status="ACCEPTED"/>
 
-    <chat chat_id="4c93a0817dec3a6a017dec3a840c0001" user_chat_id="5c93a0817dec3a6a017dec3a840c0001" app_user_id="2c93a0817dec3a6a017dec3a71200002" message="hello" create_time = "2022-02-21 09:47:21"/>
-    <chat chat_id="4c93a0817dec3a6a017dec3a840c0002" user_chat_id="5c93a0817dec3a6a017dec3a840c0001" app_user_id="2c93a0817dec3a6a017dec3a71200002" message="How is it going?" create_time = "2022-02-21 09:48:21"/>
-    <chat chat_id="4c93a0817dec3a6a017dec3a840c0003" user_chat_id="5c93a0817dec3a6a017dec3a840c0001" app_user_id="2c93a0817dec3a6a017dec3a71200004" message="Hi. I'm good" create_time = "2022-02-21 09:49:21"/>
-    <chat chat_id="4c93a0817dec3a6a017dec3a840c0004" user_chat_id="5c93a0817dec3a6a017dec3a840c0001" app_user_id="2c93a0817dec3a6a017dec3a71200002" message="Nice to hear you" create_time = "2022-02-21 09:50:21"/>
-    <chat chat_id="4c93a0817dec3a6a017dec3a840c0005" user_chat_id="5c93a0817dec3a6a017dec3a840c0001" app_user_id="2c93a0817dec3a6a017dec3a71200004" message="Buy" create_time = "2022-02-21 09:51:21"/>
-    <chat chat_id="4c93a0817dec3a6a017dec3a840c0006" user_chat_id="5c93a0817dec3a6a017dec3a840c0002" app_user_id="2c93a0817dec3a6a017dec3a71200006" message="Good evening" create_time = "2022-02-22 09:10:21"/>
-    <chat chat_id="4c93a0817dec3a6a017dec3a840c0007" user_chat_id="5c93a0817dec3a6a017dec3a840c0002" app_user_id="2c93a0817dec3a6a017dec3a71200004" message="Hello, my friend!" create_time = "2022-02-22 09:11:21"/>
-    <chat chat_id="4c93a0817dec3a6a017dec3a840c0007" user_chat_id="5c93a0817dec3a6a017dec3a840c0003" app_user_id="2c93a0817dec3a6a017dec3a71200003" message="Good morning" create_time = "2022-02-23 09:35:21"/>
-    <chat chat_id="4c93a0817dec3a6a017dec3a840c0007" user_chat_id="5c93a0817dec3a6a017dec3a840c0003" app_user_id="2c93a0817dec3a6a017dec3a71200003" message="Where are you from" create_time = "2022-02-23 09:36:21"/>
-
     <user_chat user_chat_id="5c93a0817dec3a6a017dec3a840c0001" one_user_id="2c93a0817dec3a6a017dec3a71200002" two_user_id="2c93a0817dec3a6a017dec3a71200004" create_date = "2022-02-21"/>
     <user_chat user_chat_id="5c93a0817dec3a6a017dec3a840c0002" one_user_id="2c93a0817dec3a6a017dec3a71200004" two_user_id="2c93a0817dec3a6a017dec3a71200006" create_date = "2022-02-22"/>
     <user_chat user_chat_id="5c93a0817dec3a6a017dec3a840c0003" one_user_id="2c93a0817dec3a6a017dec3a71200002" two_user_id="2c93a0817dec3a6a017dec3a71200003" create_date = "2022-02-23"/>
+
+    <chat chat_id="4c93a0817dec3a6a017dec3a840c0004" user_chat_id="5c93a0817dec3a6a017dec3a840c0001" app_user_id="2c93a0817dec3a6a017dec3a71200004" message="Nice to hear you" create_time = "2022-02-21 09:50:21"/>
+    <chat chat_id="4c93a0817dec3a6a017dec3a840c0001" user_chat_id="5c93a0817dec3a6a017dec3a840c0001" app_user_id="2c93a0817dec3a6a017dec3a71200002" message="hello" create_time = "2022-02-21 09:47:21"/>
+    <chat chat_id="4c93a0817dec3a6a017dec3a840c0005" user_chat_id="5c93a0817dec3a6a017dec3a840c0001" app_user_id="2c93a0817dec3a6a017dec3a71200002" message="Buy" create_time = "2022-02-21 09:51:21"/>
+    <chat chat_id="4c93a0817dec3a6a017dec3a840c0003" user_chat_id="5c93a0817dec3a6a017dec3a840c0001" app_user_id="2c93a0817dec3a6a017dec3a71200004" message="Hi. I'm good" create_time = "2022-02-21 09:49:21"/>
+    <chat chat_id="4c93a0817dec3a6a017dec3a840c0002" user_chat_id="5c93a0817dec3a6a017dec3a840c0001" app_user_id="2c93a0817dec3a6a017dec3a71200002" message="How is it going?" create_time = "2022-02-21 09:48:21"/>
+    <chat chat_id="4c93a0817dec3a6a017dec3a840c0006" user_chat_id="5c93a0817dec3a6a017dec3a840c0002" app_user_id="2c93a0817dec3a6a017dec3a71200006" message="Good evening" create_time = "2022-02-22 09:10:21"/>
+    <chat chat_id="4c93a0817dec3a6a017dec3a840c0007" user_chat_id="5c93a0817dec3a6a017dec3a840c0002" app_user_id="2c93a0817dec3a6a017dec3a71200004" message="Hello, my friend!" create_time = "2022-02-22 09:11:21"/>
+    <chat chat_id="4c93a0817dec3a6a017dec3a840c0008" user_chat_id="5c93a0817dec3a6a017dec3a840c0003" app_user_id="2c93a0817dec3a6a017dec3a71200003" message="Good morning" create_time = "2022-02-23 09:35:21"/>
+    <chat chat_id="4c93a0817dec3a6a017dec3a840c0009" user_chat_id="5c93a0817dec3a6a017dec3a840c0003" app_user_id="2c93a0817dec3a6a017dec3a71200003" message="Where are you from" create_time = "2022-02-23 09:36:21"/>
+
 </dataset>

@@ -77,6 +77,8 @@ public class AppUserDaoImpl extends BaseDao<AppUser, String> implements AppUserD
         Session session = getSession();
         Query<AppUserChatDto> result = session.createQuery(FIND_BY_USER_CHAT_ID_QUERY, AppUserChatDto.class);
         result.setParameter("user_chat_id", userChatId);
+        result.setFirstResult(first);
+        result.setMaxResults(max);
         return result.list();
     }
 }

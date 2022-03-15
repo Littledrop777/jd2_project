@@ -21,8 +21,8 @@
                         </a>
                     </td>
                     <td>
-                        <form method="post"
-                              action="${pageContext.request.contextPath}/send-message.do?id=${friend.id}">
+                        <form method="get"
+                              action="${pageContext.request.contextPath}/${friend.id}/user-chat.html">
                             <button type="submit">send message</button>
                         </form>
                     </td>

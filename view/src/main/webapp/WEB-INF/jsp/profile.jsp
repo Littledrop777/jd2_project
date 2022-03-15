@@ -39,8 +39,8 @@
                                     </form>
                                 </c:otherwise>
                             </c:choose>
-                            <form method="post"
-                                  action="${pageContext.request.contextPath}/send-message.do?id=${userInfoDto.uuid}">
+                            <form method="get"
+                                  action="${pageContext.request.contextPath}/${userInfoDto.uuid}/user-chat.html?page=1">
                                 <button type="submit">send message</button>
                             </form>
                         </div>

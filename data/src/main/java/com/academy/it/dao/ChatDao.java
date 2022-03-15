@@ -7,5 +7,7 @@ import java.util.List;
 
 public interface ChatDao extends Dao<Chat, String>{
 
-    List<ChatDto> findAllByUserChatId(String userId);
+    List<ChatDto> findAllByUserChatId(String userChatId, int first, int max);
+
+    long countMessagesByUserChatId(String userChatId);
 }

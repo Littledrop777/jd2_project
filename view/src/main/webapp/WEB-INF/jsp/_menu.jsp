@@ -16,7 +16,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="messenger" href="${pageContext.request.contextPath}/chats.html">
+                        <a class="messenger" href="${pageContext.request.contextPath}/1/chats.html">
                             Messenger
                         </a>
                     </li>

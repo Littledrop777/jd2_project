@@ -1,5 +1,6 @@
 package com.academy.it.dao;
 
+import com.academy.it.annotation.IT;
 import com.academy.it.config.TestConfiguration;
 import com.academy.it.dto.AppUserInfoDto;
 import com.academy.it.dto.SearchUserResultDto;
@@ -30,14 +31,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
-@ContextConfiguration(classes = TestConfiguration.class)
+@IT
 @RunWith(SpringJUnit4ClassRunner.class)
-@TestExecutionListeners(
-        {DependencyInjectionTestExecutionListener.class,
-                TransactionalTestExecutionListener.class,
-                DbUnitTestExecutionListener.class})
-@DatabaseSetup(value = "dataForTest.xml")
-@DatabaseTearDown(value = "dataForTest.xml", type = DatabaseOperation.DELETE_ALL)
 @Transactional
 public class AppUserInfoDaoTest {
 
@@ -65,7 +60,6 @@ public class AppUserInfoDaoTest {
         userDao.save(user);
         assertNotNull(user.getUserInfo().getId());
         assertNotNull(user.getId());
-//        userDao.delete(user.getId());
     }
 
     @Test
