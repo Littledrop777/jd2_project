@@ -1,1 +1,1 @@
-# jd2_project
+# Social network
